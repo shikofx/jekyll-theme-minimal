@@ -284,3 +284,32 @@ footer {
     color:#444;
   }
 }
+
+.filter-buttons {
+  text-align: right;
+  margin-bottom: 8px;
+}
+.filter-buttons button {
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+.filter-buttons button.active {
+  background-color: #0366d6;
+  color: white;
+  border-color: #0366d6;
+}
+.report-summary {
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 10px 15px;
+  margin-bottom: 16px;
+}
+.summary-divider {
+  margin: 0 10px;
+}
