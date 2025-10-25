@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
   const iframe = document.getElementById('allure-frame');
+  const fullscreenBtn = document.getElementById('fullscreen-btn');
 
   if (iframe) {
     iframe.onload = function() {
@@ -27,5 +28,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       }, 500); // Check every 500ms
     };
+  }
+
+  if (fullscreenBtn) {
+    fullscreenBtn.addEventListener('click', function() {
+      document.body.classList.toggle('focus-mode');
+    });
   }
 });

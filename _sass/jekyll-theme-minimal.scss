@@ -338,3 +338,40 @@ footer {
   vertical-align: middle;
   margin-right: 8px;
 }
+.iframe-container {
+  position: relative;
+}
+
+.fullscreen-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.fullscreen-button:hover {
+  background: white;
+}
+
+.fullscreen-button img {
+  width: 24px;
+  height: 24px;
+}
+
+.focus-mode header, .focus-mode footer {
+  display: none;
+}
+
+.focus-mode section {
+  width: 100%;
+}
