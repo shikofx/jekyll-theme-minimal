@@ -17,10 +17,18 @@
       <header>
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
 
-        <p>Я чего-то делаю</p>
+        <p>My project description.</p>
         {% if site.logo %}
           <img src="{{site.logo | relative_url}}" alt="Logo" />
         {% endif %}
+
+        <nav>
+          <ul>
+            <li><a href="{{ '/reports/allure/index.html' | relative_url }}">🏠 Allure Report</a></li>
+            <li><a href="{{ '/swiftlint-report.html' | relative_url }}">🔎 SwiftLint Report</a></li>
+            <li><a href="{{ '/swiftformat-report.html' | relative_url }}">🪄 SwiftFormat Report</a></li>
+          </ul>
+        </nav>
 
         <p>{{ site.description | default: site.github.project_tagline }}</p>
 
