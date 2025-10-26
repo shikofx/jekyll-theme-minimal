@@ -375,3 +375,20 @@ footer {
 .focus-mode section {
   width: 100%;
 }
+
+/* Wide mode for detailed Allure reports */
+body.wide-mode {
+  padding: 0;
+}
+
+body.wide-mode .wrapper {
+  width: 100%;
+}
+
+body.wide-mode header, body.wide-mode footer {
+  display: none;
+}
+
+body.wide-mode section {
+  width: 100%;
+}
