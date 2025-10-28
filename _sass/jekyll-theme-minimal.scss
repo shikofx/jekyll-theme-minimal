@@ -3,7 +3,7 @@
 
 body {
   background-color: #fff;
-  padding:50px;
+  padding: 20px;
   font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#727272;
   font-weight:400;
@@ -119,25 +119,45 @@ kbd {
 }
 
 header {
-  width:200px;
+  width: 220px; /* Increased width for new content */
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
+/* Style for the main project title */
+header h1 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+header h1 a {
+  color: #222;
+  font-weight: bold;
+}
+
+/* Styles for the navigation menu */
 header nav ul {
   list-style: none;
   padding: 0;
-  margin: 20px 0;
+  margin: 0;
+  border-top: 1px solid #e5e5e5;
 }
 
 header nav li {
-  margin-bottom: 10px;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 header nav a {
+  display: block;
+  padding: 10px 0;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
+  color: #267CB9;
+}
+
+header nav a:hover {
+  color: #069;
 }
 
 ul.downloads {
@@ -201,7 +221,7 @@ strong {
 }
 
 section {
-  width:950px;
+  width: calc(100% - 260px); /* Calculate width based on header */
   float:right;
   padding-bottom:50px;
 }
@@ -218,11 +238,18 @@ hr {
 }
 
 footer {
-  width:270px;
+  width: 220px; /* Match header width */
   float:left;
   position:fixed;
-  bottom:50px;
+  bottom: 20px;
   -webkit-font-smoothing:subpixel-antialiased;
+  font-size: 8px; /* As requested */
+  color: #727272;
+  line-height: 1.5;
+}
+
+footer span {
+  display: block;
 }
 
 @media print, screen and (max-width: 960px) {
