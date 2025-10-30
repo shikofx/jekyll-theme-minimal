@@ -253,7 +253,6 @@ footer {
   padding-top: 16px;
   padding-bottom: 20px;
   font-size: 12px;
-  border-top: 1px solid #e1e4e8; /* Смягчаем верхнюю границу */
   color: #727272;
   display: flex;
   justify-content: space-between;
@@ -461,8 +460,10 @@ body.wide-mode footer {
   min-height: 0; /* Критически важно для скроллинга внутри flex-контейнера */
   border: 1px solid #e5e5e5;
   border-radius: 6px;
-  padding: 10px;
+  padding: 4px;
   margin-top: 20px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 .dashboard-block legend {
