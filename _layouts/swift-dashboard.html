@@ -47,14 +47,15 @@
             <legend>Builds:</legend>
             <div class="scrollable-list">
               <ul>
-                <li><span class="status-icon success">✔</span><a href="#">555</a><span class="build-date">01-01-2024 14:30</span></li>
-                <li><span class="status-icon failed">✖</span><a href="#">554</a><span class="build-date">01-01-2024 12:15</span></li>
-                <li><span class="status-icon cancelled">●</span><a href="#">553</a><span class="build-date">31-12-2023 18:00</span></li>
-                <li><span class="status-icon success">✔</span><a href="#">552</a><span class="build-date">31-12-2023 15:20</span></li>
-                <li><span class="status-icon success">✔</span><a href="#">551</a><span class="build-date">30-12-2023 11:10</span></li>
-                <li><span class="status-icon failed">✖</span><a href="#">550</a><span class="build-date">29-12-2023 22:05</span></li>
-                <li><span class="status-icon success">✔</span><a href="#">549</a><span class="build-date">29-12-2023 14:00</span></li>
-                <li><span class="status-icon success">✔</span><a href="#">548</a><span class="build-date">28-12-2023 19:45</span></li>
+                {% for build in page.builds %}
+                  <li>
+                    <span class="status-icon 
+                      {% if build.status == 'success' %}success{% elsif build.status == 'failure' %}failed{% else %}cancelled{% endif %}">
+                      {% if build.status == 'success' %}✔{% elsif build.status == 'failure' %}✖{% else %}●{% endif %}
+                    </span>
+                    <a href="#">#{{ build.number }} ({{ build.hash }})</a><span class="build-date">{{ build.date }}</span>
+                  </li>
+                {% endfor %}
               </ul>
             </div>
           </fieldset>
