@@ -64,13 +64,9 @@
               <legend>Branches:</legend>
               <div class="scrollable-list">
                 <ul>
-                  <li><a href="#">feature/new-login-screen</a></li>
-                  <li><a href="#">feature/refactor-payment</a></li>
-                  <li><a href="#">feature/add-new-product</a></li>
-                  <li><a href="#">bugfix/fix-cart-calculation</a></li>
-                  <li><a href="#">hotfix/critical-crash-on-startup</a></li>
-                  <li><a href="#">feature/update-dependencies</a></li>
-                  <li><a href="#">feature/improve-performance</a></li>
+                  {% for branch in page.branches %}
+                    <li><a href="#">{{ branch }}</a></li>
+                  {% endfor %}
                 </ul>
               </div>
             </fieldset>
