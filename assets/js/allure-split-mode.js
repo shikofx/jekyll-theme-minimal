@@ -12,38 +12,21 @@ document.addEventListener("DOMContentLoaded", function() {
         const pageBody = document.body;
         let isWideMode = false;
 
-        const resizeIframe = () => {
-            if (isWideMode) return;
-
-            const contentContainer = iframe.contentWindow.document.querySelector('[data-testid="base-layout"]');
-            if (contentContainer) {
-            const newHeight = contentContainer.scrollHeight + 96;
-            if (newHeight > 0) {
-                iframe.style.height = newHeight + 'px';
-            }
-            }
-        };
-
         const toggleWideMode = () => {
             const shouldBeWide = !!iframe.contentWindow.document.querySelector('[data-testid="split-layout"]');
             if (shouldBeWide !== isWideMode) {
             isWideMode = shouldBeWide;
             pageBody.classList.toggle('wide-mode', isWideMode);
-            if (!isWideMode) {
-                requestAnimationFrame(resizeIframe);
-            }
             }
         };
 
         const observer = new MutationObserver(() => {
-            requestAnimationFrame(resizeIframe);
             requestAnimationFrame(toggleWideMode);
         });
 
         const config = { childList: true, subtree: true };
         observer.observe(iframeBody, config);
 
-        resizeIframe();
         toggleWideMode();
 
         } catch (e) {

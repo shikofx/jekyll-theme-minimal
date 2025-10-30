@@ -42,20 +42,54 @@
             <li {% if page.url == coverage_url %}class="active"{% endif %}><a href="{{ coverage_url }}"><img src="{{ '/assets/img/xcode.png' | relative_url }}" alt="Coverage Icon" class="nav-icon">Coverage</a></li>
           </ul>
         </nav>
+        <div class="dashboard-container">
+          <fieldset class="dashboard-block">
+            <legend>Builds:</legend>
+            <div class="scrollable-list">
+              <ul>
+                <li><span class="status-icon success">✔</span><a href="#">555</a><span class="build-date">01-01-2024 14:30</span></li>
+                <li><span class="status-icon failed">✖</span><a href="#">554</a><span class="build-date">01-01-2024 12:15</span></li>
+                <li><span class="status-icon cancelled">●</span><a href="#">553</a><span class="build-date">31-12-2023 18:00</span></li>
+                <li><span class="status-icon success">✔</span><a href="#">552</a><span class="build-date">31-12-2023 15:20</span></li>
+                <li><span class="status-icon success">✔</span><a href="#">551</a><span class="build-date">30-12-2023 11:10</span></li>
+                <li><span class="status-icon failed">✖</span><a href="#">550</a><span class="build-date">29-12-2023 22:05</span></li>
+                <li><span class="status-icon success">✔</span><a href="#">549</a><span class="build-date">29-12-2023 14:00</span></li>
+                <li><span class="status-icon success">✔</span><a href="#">548</a><span class="build-date">28-12-2023 19:45</span></li>
+              </ul>
+            </div>
+          </fieldset>
+          <fieldset class="dashboard-block">
+            <legend>Branches:</legend>
+            <div class="scrollable-list">
+              <ul>
+                <li><a href="#">feature/new-login-screen</a></li>
+                <li><a href="#">feature/refactor-payment</a></li>
+                <li><a href="#">feature/add-new-product</a></li>
+                <li><a href="#">bugfix/fix-cart-calculation</a></li>
+                <li><a href="#">hotfix/critical-crash-on-startup</a></li>
+                <li><a href="#">feature/update-dependencies</a></li>
+                <li><a href="#">feature/improve-performance</a></li>
+              </ul>
+            </div>
+          </fieldset>
+        </div>
       </header>
       <section class="main-content">
         {% if page.iframe_path %}
-          <iframe src="{{ page.iframe_path }}" style="width: 100%; border: none; border-radius: 5px; height: 95vh;" scrolling="no"></iframe>
-        {% else %}
-          {{ content }}
+          <iframe src="{{ page.iframe_path }}" style="width: 100%; border: none; border-radius: 5px; height: 100%;" scrolling="yes"></iframe>
         {% endif %}
       </section>
-      <footer>
-        <span>Build: <a href="{{ site.github.repository_url }}/actions/runs/{{ site.github.run_id }}" target="_blank">{{ site.github.run_number }}</a></span>
-        <span><a href="{{ site.github.repository_url }}/tree/{{ site.github.ref_name }}" target="_blank">{{ site.github.ref_name }}</a></span>
-        <span><a href="https://github.com/{{ site.github.actor }}" target="_blank">@{{ site.github.actor }}</a> {{ site.github.event_name }} <a href="{{ site.github.repository_url }}/commit/{{ site.github.sha }}" target="_blank">{{ site.github.sha | truncate: 7, "" }}</a></span>
-        <span>{{ site.time | date: "%d-%m-%Y %H:%M:%S" }}</span>
-      </footer>
     </div>
+    <footer>
+      <div class="footer-left">
+        <a href="{{ site.github.repository_url }}/tree/{{ site.github.ref_name }}" target="_blank">{{ site.github.ref_name }} - </a>Build: <a href="{{ site.github.repository_url }}/actions/runs/{{ site.github.run_id }}" target="_blank">{{ site.github.run_number }}</a>
+      </div>
+      <div class="footer-right">
+        <span><a href="https://github.com/{{ site.github.actor }}" target="_blank">@{{ site.github.actor }}</a></span>
+        <span>{{ site.github.event_name }}</span>
+        <span><a href="{{ site.github.repository_url }}/commit/{{ site.github.sha }}" target="_blank">{{ site.github.sha | truncate: 7, "" }}</a></span>
+        <span>| {{ site.time | date: "%d-%m-%Y %H:%M:%S" }}</span>
+      </div>
+    </footer>
   </body>
 </html>
