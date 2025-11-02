@@ -45,16 +45,16 @@
         </nav>
         <div class="dashboard-container">
           <fieldset class="dashboard-block">
-            <legend>Builds:</legend>
+            <legend>Runs:</legend>
             <div class="scrollable-list">
               <ul>
-                {% for build in page.builds %}
+                {% for run in page.runs %}
                   <li>
                     <span class="status-icon 
-                      {% if build.status == 'success' %}success{% elsif build.status == 'failure' %}failed{% else %}cancelled{% endif %}">
-                      {% if build.status == 'success' %}✔{% elsif build.status == 'failure' %}✖{% else %}●{% endif %}
+                      {% if run.status == 'success' %}success{% elsif run.status == 'failure' %}failed{% else %}cancelled{% endif %}">
+                      {% if run.status == 'success' %}✔{% elsif run.status == 'failure' %}✖{% else %}●{% endif %}
                     </span>
-                    <a href="#">#{{ build.number }} ({{ build.hash }})</a><span class="build-date">{{ build.date }}</span>
+                    <a href="#">#{{ run.number }} ({{ run.hash }})</a><span class="run-date">{{ build.date }}</span>
                   </li>
                 {% endfor %}
               </ul>
@@ -82,7 +82,7 @@
     </div>
     <footer>
       <div class="footer-left">
-        <a href="{{ site.github.repository_url }}/tree/{{ site.github.ref_name }}" target="_blank">{{ site.github.ref_name }}</a> / Build: <a href="{{ site.github.repository_url }}/actions/runs/{{ site.github.run_id }}" target="_blank">{{ site.github.run_number }}</a>
+        <a href="{{ site.github.repository_url }}/tree/{{ site.github.ref_name }}" target="_blank">{{ site.github.ref_name }}</a>  Run: <a href="{{ site.github.repository_url }}/actions/runs/{{ site.github.run_id }}" target="_blank">{{ site.github.run_number }}</a>
       </div>
       <div class="footer-right">
         <span><a href="https://github.com/{{ site.github.actor }}" target="_blank">@{{ site.github.actor }}</a></span>
