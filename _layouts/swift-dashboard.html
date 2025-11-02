@@ -13,33 +13,41 @@
   <body class="{% if page.wide_mode %}wide-mode{% endif %}">
     <div class="wrapper">
       <header>
-        <h1><a href="{{ site.github.repository_url }}">{{ site.title | default: "Project Quality Report" }}</a></h1>
+        <h1><a href="{{ '/' | relative_url }}">{{ site.title | default: "Project Quality Report" }}</a></h1>
         
         <nav>
           <ul class="nav-menu">
             {% assign home_url = '/' | relative_url %}
-            <li {% if page.url == home_url or page.url == '/index.html' %}class="active"{% endif %}>
-              <a href="{{ home_url }}">
+            {% comment %}
+              Ссылка на Allure Report должна вести на главную страницу текущего билда.
+              page.url - это и есть URL текущей страницы.
+            {% endcomment %}
+            <li {% if page.iframe_path contains 'allure' %}class="active"{% endif %}>
+              <a href="{{ page.url | relative_url }}">
                 <img src="{{ '/assets/img/allure.svg' | relative_url }}" alt="Allure Icon" class="nav-icon">Allure Report
               </a>
             </li>
 
-            {% assign swiftlint_url = '/reports/swiftlint/' | relative_url %}
-            <li {% if page.url == swiftlint_url %}class="active"{% endif %}>
+            {% comment %}
+              Для остальных отчетов строим относительный URL от текущей страницы.
+              Например, './reports/swiftlint/index.html'
+            {% endcomment %}
+            {% assign swiftlint_url = './reports/swiftlint/index.html' | relative_url %}
+            <li {% if page.url contains 'swiftlint' %}class="active"{% endif %}>
               <a href="{{ swiftlint_url }}">
                 <img src="{{ '/assets/img/swiftlint.png' | relative_url }}" alt="SwiftLint Icon" class="nav-icon">SwiftLint
               </a>
             </li>
 
-            {% assign swiftformat_url = '/reports/swiftformat/' | relative_url %}
-            <li {% if page.url == swiftformat_url %}class="active"{% endif %}>
+            {% assign swiftformat_url = './reports/swiftformat/index.html' | relative_url %}
+            <li {% if page.url contains 'swiftformat' %}class="active"{% endif %}>
               <a href="{{ swiftformat_url }}">
                 <img src="{{ '/assets/img/swiftformat.png' | relative_url }}" alt="SwiftFormat Icon" class="nav-icon">SwiftFormat
               </a>
             </li>
 
-            {% assign coverage_url = '/reports/coverage/' | relative_url %}
-            <li {% if page.url == coverage_url %}class="active"{% endif %}><a href="{{ coverage_url }}"><img src="{{ '/assets/img/xcode.png' | relative_url }}" alt="Coverage Icon" class="nav-icon">Coverage</a></li>
+            {% assign coverage_url = './reports/coverage/index.html' | relative_url %}
+            <li {% if page.url contains 'coverage' %}class="active"{% endif %}><a href="{{ coverage_url }}"><img src="{{ '/assets/img/xcode.png' | relative_url }}" alt="Coverage Icon" class="nav-icon">Coverage</a></li>
           </ul>
         </nav>
         <div class="dashboard-container">
