@@ -20,7 +20,7 @@
           <ul class="nav-menu">
             {% assign home_url = "{{ '/' | relative_url }}'%}
             <li {% if page.url == home_url or page.url == '/index.html' %}class="active"{% endif %}>
-              <a href="{{ home_url }}/{{ site.github.run_number}}">
+              <a href="{{ home_url }}/{{ site.github.run_number }}">
                 <img src="{{ '/assets/img/allure.svg' | relative_url }}" alt="Allure Icon" class="nav-icon">Allure Report
               </a>
             </li>
