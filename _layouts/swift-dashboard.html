@@ -23,7 +23,7 @@
               page.url - это и есть URL текущей страницы.
             {% endcomment %}
             <li {% if page.iframe_path contains 'allure' %}class="active"{% endif %}>
-              <a href="{{ page.url | relative_url }}">
+             <a href="{{ page.url | relative_url }}">
                 <img src="{{ '/assets/img/allure.svg' | relative_url }}" alt="Allure Icon" class="nav-icon">Allure Report
               </a>
             </li>

@@ -18,9 +18,9 @@
         
         <nav>
           <ul class="nav-menu">
-            {% assign home_url = '/' | relative_url %}
+            {% assign home_url = "{{ '/' | relative_url }}'%}
             <li {% if page.url == home_url or page.url == '/index.html' %}class="active"{% endif %}>
-              <a href="{{ home_url }}">
+              <a href="{{ home_url }}/{{ site.github.run_number}}">
                 <img src="{{ '/assets/img/allure.svg' | relative_url }}" alt="Allure Icon" class="nav-icon">Allure Report
               </a>
             </li>
@@ -54,7 +54,7 @@
                       {% if run.status == 'success' %}success{% elsif run.status == 'failure' %}failed{% else %}cancelled{% endif %}">
                       {% if run.status == 'success' %}✔{% elsif run.status == 'failure' %}✖{% else %}●{% endif %}
                     </span>
-                    <a href="#">#{{ run.number }} ({{ run.hash }})</a><span class="run-date">{{ build.date }}</span>
+                    <a href="{{ run.url | relative_url }}">#{{ run.number }} ({{ run.hash }})</a><span class="run-date">{{ build.date }}</span>
                   </li>
                 {% endfor %}
               </ul>
